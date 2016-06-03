@@ -1,12 +1,11 @@
 ﻿'use strict';
-app.factory('ordersService', ['$http', function ($http) {
+app.factory('ordersService', ['$http', 'appConfig', function ($http, appConfig) {
 
-    var serviceBase = 'http://www.khactrinh.somee.com/';
     var ordersServiceFactory = {};
 
     var _getOrders = function () {
 
-        return $http.get(serviceBase + 'api/orders').then(function (results) {
+        return $http.get(appConfig.url + 'api/orders').then(function (results) {
             return results;
         });
     };

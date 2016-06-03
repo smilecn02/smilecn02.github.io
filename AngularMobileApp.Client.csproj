@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,21 +7,18 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B1B53BC9-8E91-46C9-9C74-65280EB27B92}</ProjectGuid>
+    <ProjectGuid>{2D2AFC74-7CBB-43AC-A475-3944A8A36901}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AngularJSAuthentication.Web</RootNamespace>
-    <AssemblyName>AngularJSAuthentication.Web</AssemblyName>
+    <RootNamespace>AngularMobileApp.Client</RootNamespace>
+    <AssemblyName>AngularMobileApp.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -66,8 +57,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\views\orders.html" />
-    <Content Include="packages.config" />
+    <Content Include="app\diaries\diaries.controller.js" />
+    <Content Include="app\diaries\diaries.services.js" />
+    <Content Include="app\diaries\diaries.view.html" />
+    <Content Include="node_modules\angular-local-storage\.bowerrc" />
+    <Content Include="node_modules\angular-local-storage\.editorconfig" />
+    <Content Include="node_modules\angular-local-storage\.npmignore" />
+    <Content Include="node_modules\angular-local-storage\.travis.yml" />
+    <Content Include="node_modules\angular-local-storage\bower.json" />
+    <Content Include="node_modules\angular-local-storage\CHANGELOG.md" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.min.js.map" />
+    <Content Include="node_modules\angular-local-storage\LICENSE" />
+    <Content Include="node_modules\angular-local-storage\package.json" />
+    <Content Include="node_modules\angular-local-storage\README.md" />
+    <Content Include="node_modules\angular-local-storage\test\.jshintrc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,16 +90,32 @@
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
+    <Content Include="app\views\orders.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="index.html" />
+    <Content Include="node_modules\angular-local-storage\.gitattributes" />
+    <Content Include="node_modules\angular-local-storage\demo\demo-app.js" />
+    <Content Include="node_modules\angular-local-storage\demo\demo-style.css" />
+    <Content Include="node_modules\angular-local-storage\demo\demo.html" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="node_modules\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="node_modules\angular-local-storage\Gruntfile.js" />
+    <Content Include="node_modules\angular-local-storage\index.js" />
+    <Content Include="node_modules\angular-local-storage\src\angular-local-storage.js" />
+    <Content Include="node_modules\angular-local-storage\test\karma.conf.js" />
+    <Content Include="node_modules\angular-local-storage\test\mock\localStorageMock.js" />
+    <Content Include="node_modules\angular-local-storage\test\spec\localStorageSpec.js" />
+    <Content Include="scripts\angular-local-storage.min.js" />
+    <Content Include="scripts\authComplete.js" />
+    <Content Include="scripts\loading-bar.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\" />
-    <Folder Include="scripts\" />
+    <Folder Include="content\css\" />
+    <Folder Include="content\fonts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -111,9 +130,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>19543</DevelopmentServerPort>
+          <DevelopmentServerPort>25720</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:19537/</IISUrl>
+          <IISUrl>http://localhost:25720/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -123,13 +142,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

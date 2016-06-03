@@ -22,13 +22,30 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/orders.html"
     });
 
+    $routeProvider.when("/diaries", {
+        controller: "diariesController",
+        templateUrl: "/app/diaries/diaries.view.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
+
+/* http://khactrinh.somee.com/ - http://localhost:22258/ */
+
+app.constant("appConfig", {
+    "url": "http://khactrinh.somee.com/"
+});
+
+app.run(['authService', function (authService) {
+    authService.fillAuthData();
+}]);
 
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 });
 
-app.run(['authService', function (authService) {
-    authService.fillAuthData();
+app.filter("sanitize", ['$sce', function ($sce) {
+    return function (htmlCode) {
+        return $sce.trustAsHtml(htmlCode);
+    }
 }]);
