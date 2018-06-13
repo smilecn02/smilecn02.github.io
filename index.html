@@ -1,81 +1,74 @@
-﻿<!DOCTYPE html>
-<html data-ng-app="AngularAuthApp">
-<head>
-    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
-    <title>AngularJS Authentication</title>
-    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="content/css/site.css" rel="stylesheet" />
-    <link href="content/css/loading-bar.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
-                </button>
-                <a class="navbar-brand" href="#/">Home</a>
-            </div>
-            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
-                <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/diaries">My Diaries</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <div class="jumbotron">
-        <div class="container">
-            <div class="page-header text-center">
-                <h1>My Angular Application</h1>
-            </div>
-        </div>
-    </div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <div class="container">
-        <div data-ng-view="">
-        </div>
-    </div>
-    <hr />
+    <title>Tới luôn bác tài ơi</title>
+	<script src="app.js"></script>
+  </head>
+  <body>
+	<div class="container">
+		<H2>Tới luôn bác tài app</H2>
+		<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Chọn Entity</label><br>
+				<select onchange="getval(this);">
+					<option value="1">Application</option>
+					<option value="2">Contact</option>
+					<option value="3">Attribute</option>
+					<option value="4">Case</option>
+					<option value="5">App Type</option>
+					<option value="6">Case Type</option>
+					<option value="7">Organisation</option>
+					<option value="8">Employment Record</option>
+					<option value="9">Post Record</option>
+					<option value="10">Role Record</option>
+					<option value="11">Notification</option>
+					
+					<option value="0">============</option>
+					
+					<option value="21">SEADEV - Application</option>
+					<option value="22">SEADEV - Contact</option>
+					<option value="23">SEADEV - Attribute</option>
+					<option value="24">SEADEV - Case</option>
+					<option value="25">SEADEV - App Type</option>
+					<option value="26">SEADEV - Case Type</option>
+					<option value="27">SEADEV - Organisation</option>
+					<option value="28">SEADEV - Employment Record</option>
+					<option value="29">SEADEV - Post Record</option>
+					<option value="210">SEADEV - Role Record</option>
+					<option value="211">SEADEV - Notification</option>
+				</select>
+			</div>
+			
+		  <div class="form-group">
+			<label for="exampleInputEmail1">Nhập địa chỉ gốc</label>
+			<input type="text" class="form-control" id="url" aria-describedby="emailHelp" placeholder="Địa chỉ gốc">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Nhập key</label>
+			<input type="text" class="form-control" id="key" placeholder="Nhập key">
+		  </div>
+		  
+		  <button type="submit" class="btn btn-primary" onClick='event.preventDefault(); OpenWindow();'>Tới luôn bác tài</button>
+		  
+		  
+		</form>
+		
 
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12" align="center">
-                    <p class="text-muted">Created by Khac Trinh</p>
-                </div>
-            </div>
-        </div>
-    </div>
+	</div>
 
-    <!-- 3rd party libraries -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
-    <script src="scripts/angular-local-storage.min.js"></script>
-    <!--<script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>-->
-    <script src="scripts/loading-bar.min.js"></script>
-    <!-- Load app main script -->
-    <script src="app/app.js"></script>
-    <!-- Load services -->
-    <script src="app/services/authInterceptorService.js"></script>
-    <script src="app/services/authService.js"></script>
-    <script src="app/services/ordersService.js"></script>
-    <!-- Load controllers -->
-    <script src="app/controllers/indexController.js"></script>
-
-    <script src="app/home/homeController.js"></script>
-
-    <script src="app/login/loginController.js"></script>
-    <script src="app/login/signupController.js"></script>
-
-    <script src="app/orders/ordersController.js"></script>
-
-    <script src="app/diaries/diaries.services.js"></script>
-    <script src="app/diaries/diaries.controller.js"></script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	
+  </body>
 </html>
